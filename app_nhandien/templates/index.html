@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <style></style>
+</head>
+
+<body style="background-color: azure;">
+    <div style="text-align-last: center;"><img src="{{ url_for('static',filename='logo.png') }}" /></div>
+    <h1 style="text-align: -webkit-center;">HỆ THỐNG NHẬN DIỆN MÃ SỐ SINH VIÊN</h1>
+    <h4 style="text-align: -webkit-center;">VUI LÒNG CHỌN ẢNH CÓ CHỨA MÃ SINH VIÊN</h4>
+    <form action="/" method="post" enctype="multipart/form-data"
+        style="color: darkgoldenrod;text-align: -webkit-center;">
+        <input type="file" name="file" accept=".jpg, .jpeg, .png, .gif" required style="color: darkgoldenrod;"> <br>
+        <button type="submit"
+            style="width: 100px;height: 40px;border-radius: 10px;background: steelblue;color:white">Upload</button>
+    </form>
+    <hr>
+    {% if filename %}
+    <div style="text-align: -webkit-center;">
+        <img src="{{ url_for('display_image', filename=filename) }}"
+            style="width: 1000px;height: 500px;text-align: -webkit-center;">
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p style="text-align: -webkit-center;color: red;font-weight: bold;font-size: -webkit-xxx-large;">{{ message }}</p>
+    <form action="/xuly/{{filename}}" enctype="multipart/form-data"
+        style="color: darkgoldenrod;text-align: -webkit-center;">
+        <p>
+            <input type="submit" value="Xem quá trình xử lý"
+                style="width: 400px;height: 40px;border-radius: 10px;background: steelblue;color:white">
+        </p>
+    </form>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% endif %}
+</body>
+
+</html>

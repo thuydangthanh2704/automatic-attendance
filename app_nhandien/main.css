@@ -1,0 +1,29 @@
+.login-form {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .login-form__label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .login-form__input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+
+  .login-form__button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .login-form__button:hover {
+    background-color: #45a049;
+  }
